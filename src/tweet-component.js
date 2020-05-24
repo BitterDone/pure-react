@@ -44,7 +44,7 @@ const Tweet = () => (
                 <RetweetButton/>
                 <LikeButton/>
                 <MoreOptionsButton/>
-                </div>
+            </div>
         </div>
     </div>)
 
@@ -55,5 +55,16 @@ export default Tweet;
     webpack learns the js file is dependent on the css file
     webpack includes the css content in the bundled js sent to the browser
     see in the browser -> dev tools -> elements -> <head> element, look for a <style> element at the bottom you didn't create
+
+    top-down good for new or simple projects
+    bottom-up good for incrementally changing a large project to react from something else
+
+    props are read-only and therefore only flow down to children
+    to communicate data back up to the parent, the parent passes a prop function
+    
+        const handleAction = (event) => console.log('Child did:', event)
+        const Parent = () => (<Child onAction={handleAction}/>);
+
+        const Child = ({ onAction }) => (<button onClick={onAction}/>);
 
 */
