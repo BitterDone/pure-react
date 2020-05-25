@@ -5,6 +5,7 @@ import HelloWorld from './react-hello';
 import MyThing from './jsx-sxercises';
 import TweetComponent from './tweet-component';
 import PropExercises from './props-proptype-exercises';
+import './index.css';
 
 const testTweet = {
     message: "Something about cats.",
