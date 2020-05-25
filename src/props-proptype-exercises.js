@@ -3,7 +3,7 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
-const formatForDisplay = obj => {
+const uppercaseFirstChar = obj => {
     if (obj === undefined) return null // null best return?
     if (obj === null) return null
     if (Object.keys(obj).length < 1) return null
@@ -19,9 +19,9 @@ const formatForDisplay = obj => {
 }
 
 const AddressLabel = ({ person }) => {
-    const { firstName, lastName, streetAddr, city, state, zip } = formatForDisplay(person)
+    const { firstName, lastName, streetAddr, city, state, zip } = uppercaseFirstChar(person)
 
-    const formattedStreetObj = formatForDisplay(streetAddr.split(' '))
+    const formattedStreetObj = uppercaseFirstChar(streetAddr.split(' '))
     const formattedStreet = Object.values(formattedStreetObj).join(' ')
     const formattedState = state.toUpperCase()
 
