@@ -63,11 +63,25 @@ const Tweet = ({tweet}) => (
         </div>
     </div>)
 
+// Works, but below for each component -> DRY -> so don't do it
+// Tweet.propTypes = {
+//     tweet: PropTypes.shape({
+//         author: PropTypes.shape({
+//             name: PropTypes.string.isRequired,
+//             handle: PropTypes.string.isRequired,
+//         }).isRequired,
+//         timestamp: PropTypes.string.isRequired,
+//         message: PropTypes.string.isRequired,
+//     }).isRequired,
+// }
 Avatar.propTypes = {
     gravatar: PropTypes.string,
 }
 Author.propTypes = {
-    author: PropTypes.object.isRequired,
+    author: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        handle: PropTypes.string.isRequired,
+    }).isRequired,
 }
 Time.propTypes = {
     time: PropTypes.string.isRequired,
@@ -132,4 +146,7 @@ export default Tweet;
     These pass:
         <CustomTest myCustomProp={[1, 2, 3]}/>
         <CustomTest myCustomProp="abc"/>
+    BUT
+    a failed validation will only warn you
+    failed validations do not prevent code from running
 */
