@@ -1,48 +1,62 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
 import './tweet-component.css';
+import moment from 'moment';
 
-const Avatar = () => (
-    <img src="https://www.gravatar.com/avatar/nothing"
+const Avatar = ({hash}) => (
+    <img src={`https://www.gravatar.com/avatar/${hash || 'nothing'}`}
         className="avatar"
         alt="avatar" />
 )
 
-const Message = () => (
+const Message = ({text}) => (
     <div className="message">
-        This is less than 140 characters.
+        {text ? text : 'This is less than 140 characters.'}
     </div>
 );
     
-const Author = () => (
-    <span className="author">
-        <span className="name">Your Name</span>
-        <span className="handle">@yourhandle</span>
-    </span>
-);
+const Author = ({author}) => {
+    const { name, handle } = author
+    return  (
+        <span className="author">
+            <span className="name">{name || 'Your Name'}</span>
+            <span className="handle">@{handle || 'yourhandle'}</span>
+        </span>
+    );
+}
 
-const Time = () => (<span className="time">3h ago</span>);
+const Time = ({ time }) => (<span className="time">{moment(time).fromNow()}</span>);
 
 const ReplyButton = () => (<i className="fa fa-reply reply-button"/>);
 
-const RetweetButton = () => (<i className="fa fa-retweet retweet-button"/>);
+const getRetweenCount = count => count > 0
+    ? (<span className="retweet-count">{count}</span>)
+    : null;
 
-const LikeButton = () => (<i className="fa fa-heart like-button"/>);
+const RetweetButton = ({ count }) => (<span className="retweet-button">
+    <i className="fa fa-retweet retweet-button"/>
+    {getRetweenCount(count)}
+</span>);
 
+const LikeButton = ({ count }) => (<span className="like-button">
+    <i className="fa fa-heart"/>
+    {count > 0 && <span className="like-count">{count}</span>}
+</span>);
 const MoreOptionsButton = () => (<i className="fa fa-ellipsis-h more-options-button"/>);
 
     
     
-const Tweet = () => (
+const Tweet = ({tweet}) => (
     <div className="tweet">
-        <Avatar />
+        <Avatar hash={tweet.gravatar}/>
         <div className="content">
-            <Author/><Time/>
-            <Message/>
+            <Author author={tweet.author}/>
+            <Time time={tweet.timestamp}/>
+            <Message text={tweet.message}/>
             <div className="buttons">
                 <ReplyButton/>
-                <RetweetButton/>
-                <LikeButton/>
+                <RetweetButton count={tweet.retweets}/>
+                <LikeButton count={tweet.likes}/>
                 <MoreOptionsButton/>
             </div>
         </div>
@@ -66,5 +80,10 @@ export default Tweet;
         const Parent = () => (<Child onAction={handleAction}/>);
 
         const Child = ({ onAction }) => (<button onClick={onAction}/>);
-
+    Pass the whole object vs just what it's looking for?
+        -component unpacking the object and looking for a specifically named key hurts reusability
+        - -all attributes have to share that key name
+        -data object refactors will break the child's internal logic
+    Fragments vs div/span, either work but d/s allow styling
+    
 */
