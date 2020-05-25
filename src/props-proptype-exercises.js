@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Envelope from './Envelope';
 import CreditCard from './CreditCard';
+import Poster from './Poster';
 
 const PropExercises = () => (<div style={{ height: '100%    ', width: '100%', backgroundColor: 'white', }}>
     <Envelope
@@ -31,6 +32,11 @@ const PropExercises = () => (<div style={{ height: '100%    ', width: '100%', ba
         securityCode="1234"
         expDate="0819"
         cardholder="cardholder name"
+    />
+    <Poster
+        title="React"
+        image=""
+        text="The best thing since jQuery, probably on many multiple lines that is actually quite long"
     />
 </div>)
 
