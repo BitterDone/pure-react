@@ -2,12 +2,13 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import './tweet-component.css';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 const Avatar = ({hash}) => (
     <img src={`https://www.gravatar.com/avatar/${hash || 'nothing'}`}
         className="avatar"
         alt="avatar" />
-)
+)    
 
 const Message = ({text}) => (
     <div className="message">
@@ -62,6 +63,25 @@ const Tweet = ({tweet}) => (
         </div>
     </div>)
 
+Avatar.propTypes = {
+    gravatar: PropTypes.string,
+}
+Author.propTypes = {
+    author: PropTypes.object.isRequired,
+}
+Time.propTypes = {
+    time: PropTypes.string.isRequired,
+}
+Message.propTypes = {
+    text: PropTypes.string.isRequired,
+}
+RetweetButton.propTypes = {
+    count: PropTypes.number,
+}
+LikeButton.propTypes = {
+    count: PropTypes.number,
+}
+
 export default Tweet;
 
 /*
@@ -85,5 +105,31 @@ export default Tweet;
         - -all attributes have to share that key name
         -data object refactors will break the child's internal logic
     Fragments vs div/span, either work but d/s allow styling
-    
+
+    Forget to pass a prop or parameter?
+    Use typescript or be diligent with proptypes
+        array, bool, func, number, object, string, node, element
+        node is anything that can be rendered
+        element is a React element created by JSX or React.createElement()
+        PropTypes.instanceOf(SomeClass)
+        PropTypes.oneOf([array, of, specific, values])
+        PropTypes.oneOfType([PropTypes.string, PropTypes.boolean])
+        PropTypes.arrayOf(PropTypes.string)
+        PropTypes.objectOf(PropTypes.number)
+        Matches some shape, with at least these attributes:
+            PropTypes.shape({
+                name: PropTypes.string,
+                age: PropTypes.number
+            })
+    A Linter is quite useful with this effort
+    All PropTypes are default optional and will warn only on a type mismatch
+    Custom validator
+    const customValidatorName = (props, propName, componentName) => {
+        if (props[propName].length < 3) { // for example
+            return new Error(`Invalid prop ${propName} supplied to ${componentName}: length < 3`)
+        }
+    }
+    These pass:
+        <CustomTest myCustomProp={[1, 2, 3]}/>
+        <CustomTest myCustomProp="abc"/>
 */
