@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import HelloWorld from './react-hello';
 import MyThing from './jsx-sxercises';
 import TweetComponent from './tweet-component';
+import PropExercises from './props-proptype-exercises';
 
 const testTweet = {
     message: "Something about cats.",
@@ -18,4 +19,5 @@ const testTweet = {
 }
 
 // ReactDOM.render(<HelloWorld />, document.querySelector('#root')); // default
-ReactDOM.render(<TweetComponent tweet={testTweet} />, document.querySelector('#root')); // default
+// ReactDOM.render(<TweetComponent tweet={testTweet} />, document.querySelector('#root')); // default
+ReactDOM.render(<PropExercises/>, document.querySelector('#root')); // default
