@@ -34,9 +34,9 @@ const PropExercises = () => (<div style={{ height: '100%    ', width: '100%', ba
         cardholder="cardholder name"
     />
     <Poster
-        title="React"
-        image=""
-        text="The best thing since jQuery, probably on many multiple lines that is actually quite long"
+        title="Nailed It"
+        image="https://previews.123rf.com/images/sielemann/sielemann1002/sielemann100200020/6529486-a-nail-is-bent-out-of-shape-on-a-white-background.jpg"
+        text="Is not what you should be saying, because here, you definitely failed"
     />
 </div>)
 
