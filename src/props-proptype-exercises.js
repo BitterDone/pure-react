@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Envelope from './Envelope';
 import CreditCard from './CreditCard';
 import Poster from './Poster';
+import SingleLineEmail from './SingleLineEmail';
 
 const PropExercises = () => (<div style={{ height: '100%    ', width: '100%', backgroundColor: 'white', }}>
     <Envelope
@@ -38,6 +39,12 @@ const PropExercises = () => (<div style={{ height: '100%    ', width: '100%', ba
         image="https://previews.123rf.com/images/sielemann/sielemann1002/sielemann100200020/6529486-a-nail-is-bent-out-of-shape-on-a-white-background.jpg"
         text="Is not what you should be saying, because here, you definitely failed"
     />
+    <SingleLineEmail email={{
+        sender: '',
+        subject: '',
+        date: '',
+        message: '',
+    }}/>
 </div>)
 
 export default PropExercises;
