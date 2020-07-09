@@ -5,6 +5,7 @@ import HelloWorld from './react-hello';
 import MyThing from './jsx-sxercises';
 import TweetComponent from './tweet-component';
 import PropExercises from './props-proptype-exercises';
+import ChildrenExercises from './children-exercises';
 import './index.css';
 
 const testTweet = {
@@ -21,4 +22,4 @@ const testTweet = {
 
 // ReactDOM.render(<HelloWorld />, document.querySelector('#root')); // default
 // ReactDOM.render(<TweetComponent tweet={testTweet} />, document.querySelector('#root')); // default
-ReactDOM.render(<PropExercises/>, document.querySelector('#root')); // default
+ReactDOM.render(<ChildrenExercises/>, document.querySelector('#root')); // default
