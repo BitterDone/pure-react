@@ -26,7 +26,7 @@ const Author = ({author}) => {
     );
 }
 
-const Time = ({ time }) => (<span className="time">{moment(time).fromNow()}</span>);
+export const Time = ({ time }) => (<span className="time">{moment(time).fromNow()}</span>);
 
 const ReplyButton = () => (<i className="fa fa-reply reply-button"/>);
 

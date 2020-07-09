@@ -6,6 +6,7 @@ import MyThing from './jsx-sxercises';
 import TweetComponent from './tweet-component';
 import PropExercises from './props-proptype-exercises';
 import ChildrenExercises from './children-exercises';
+import GithubFileList from './GithubFileList';
 import './index.css';
 
 const testTweet = {
@@ -20,6 +21,46 @@ const testTweet = {
     timestamp: "2016-07-30 21:24:37"
 }
 
+const testFiles = [
+    {
+        id: 1,
+        name: 'src',
+        type: 'folder',
+        updated_at: "2016-07-11 21:24:00",
+        latestCommit: {
+            message: 'Initial commit'
+        }
+    },
+    {
+        id: 2,
+        name: 'tests',
+        type: 'folder',
+        updated_at: "2016-07-11 21:24:00",
+        latestCommit: {
+            message: 'Initial commit'
+        }
+    },
+    {
+        id: 3,
+        name: 'README',
+        type: 'file',
+        updated_at: "2016-07-18 21:24:00",
+        latestCommit: {
+            message: 'Added a readme'
+        }
+    },
+    {
+        id: 4,
+        name: 'README2',
+        type: 'file',
+        updated_at: "2016-07-18 21:24:00",
+        latestCommit: {
+            message: 'super long to test overflow hidden with ellipses when it cuts off'
+        }
+    },
+];
+    
+
 // ReactDOM.render(<HelloWorld />, document.querySelector('#root')); // default
 // ReactDOM.render(<TweetComponent tweet={testTweet} />, document.querySelector('#root')); // default
-ReactDOM.render(<ChildrenExercises/>, document.querySelector('#root')); // default
+ReactDOM.render(<GithubFileList fileList={testFiles}/>, document.querySelector('#root')); // default
