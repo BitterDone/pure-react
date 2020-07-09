@@ -7,6 +7,7 @@ import TweetComponent from './tweet-component';
 import PropExercises from './props-proptype-exercises';
 import ChildrenExercises from './children-exercises';
 import GithubFileList from './GithubFileList';
+import Trello from './trello';
 import './index.css';
 
 const testTweet = {
@@ -63,4 +64,4 @@ const testFiles = [
 
 // ReactDOM.render(<HelloWorld />, document.querySelector('#root')); // default
 // ReactDOM.render(<TweetComponent tweet={testTweet} />, document.querySelector('#root')); // default
-ReactDOM.render(<GithubFileList fileList={testFiles}/>, document.querySelector('#root')); // default
+ReactDOM.render(<Trello fileList={testFiles}/>, document.querySelector('#root')); // default
