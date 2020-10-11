@@ -8,7 +8,10 @@ import PropExercises from './props-proptype-exercises';
 import ChildrenExercises from './children-exercises';
 import GithubFileList from './GithubFileList';
 import Trello from './trello';
+import LifecycleDemo from './LifecycleDemo';
 import './index.css';
+
+import Test from './Test.js';
 
 const testTweet = {
     message: "Something about cats.",
@@ -64,4 +67,5 @@ const testFiles = [
 
 // ReactDOM.render(<HelloWorld />, document.querySelector('#root')); // default
 // ReactDOM.render(<TweetComponent tweet={testTweet} />, document.querySelector('#root')); // default
-ReactDOM.render(<Trello fileList={testFiles}/>, document.querySelector('#root')); // default
+// ReactDOM.render(<Trello fileList={testFiles}/>, document.querySelector('#root')); // default
+ReactDOM.render(<Test name="Dan"/>, document.querySelector('#root')); // default
